@@ -46,6 +46,6 @@ stages:
         namespace: 'default'
         command: 'apply'
         useConfigurationFile: true
-        configuration: '$(Build.SourcesDirectory)/azure-pipelines.yml'
+        configuration: '$(Build.SourcesDirectory)/NodeJSExample/azure-pipelines.yml'
         secretType: 'dockerRegistry'
         containerRegistryType: 'Azure Container Registry'
