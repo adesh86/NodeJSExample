@@ -37,13 +37,15 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+
+
     - task: Kubernetes@1
       inputs:
         connectionType: 'Kubernetes Service Connection'
         kubernetesServiceEndpoint: 'scazdok8s'
         namespace: 'default'
         command: 'apply'
-        arguments: '$(Build.SourcesDirectory)/azure-pipelines.yml'
+        useConfigurationFile: true
+        configuration: '$(Build.SourcesDirectory)/azure-pipelines.yml'
         secretType: 'dockerRegistry'
         containerRegistryType: 'Azure Container Registry'
-
