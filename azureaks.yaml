@@ -14,9 +14,9 @@ spec:
     spec:
       containers:
       - name: mynodejsdockerrepo
-        image: containerregistryimage.azurecr.io/imagenodejsexample:latest
+        image: containerregistryimage.azurecr.io/imagenodejsexample
         ports:
-        - containerPort: 5000
+        - containerPort: 8080
 # service type loadbalancer       
 ---
 apiVersion: v1
@@ -28,6 +28,6 @@ spec:
     app: my-nodejs-app
   ports:
     - protocol: TCP
-      port: 5000
-      targetPort: 5000
+      port: 8080
+      targetPort: 8080
   type: LoadBalancer
